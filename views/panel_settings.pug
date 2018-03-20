@@ -3,10 +3,10 @@
 	span.fa.fa-close#closeSettings
 
 	.settingsWrap
-		h3 Story Mode
+		h3 演示模式
 		hr
-		p Story mode enables the step by step walk through of the invocation process.
-		p Enable story mode if you are new to Marbles or Fabric. 
+		p 可以通过开启演示模式一步步来了解精灵球应用.
+		p . 
 
 		br
 		br
@@ -14,35 +14,35 @@
 			span Story mode is 
 			span#storyStatus.storyOn on
 		p
-			button(type="button")#disableStoryMode Disable
+			button(type="button")#disableStoryMode 停用
 			span &nbsp;&nbsp;
-			button(type="button" disabled="disabled")#enableStoryMode Enable
+			button(type="button" disabled="disabled")#enableStoryMode 启用
 	
 	.settingsWrap(hidden)
 		h3 
-			span Endorsements
-			span#construction (work in progress... does not work yet)
+			span 赞同
+			span#construction (处理中...)
 		hr
 		p 
-			span Proposals must be endorsed by a number of peers to be successful. 
-			span The exact number of endorsements will be dictated by your network's policy. 
-			span If you are new to Marbles or Fabric then select the first endorser. 
+			span 处理的记录需要在一系列的peers节点登记成功. 
+			span 登记的确切数量将由你的网络策略决定. 
+			span 如果你是首次使用精灵球应用，可以选择第一种模式. 
 		br
 		br
-		p Every checked endorser below will receive marble proposals.
+		p 下面的每一个背书检测将都会收到精灵球的信息.
 		
 		.settingPeersWrap
 			p 
-				span Endorser 1
+				span 背书 1
 				input(type="text" placeholder="Peer URL" name="peer1").longer
 				input(type="checkbox" name="peer1")
 
 			p 
-				span Endorser 2
+				span 背书 2
 				input(type="text" placeholder="Peer URL" name="peer2").longer
 				input(type="checkbox" name="peer2")
 
 		p
-			button(type="button" disabled="disabled") Add Endorser
+			button(type="button" disabled="disabled") 增加背书
 
 	

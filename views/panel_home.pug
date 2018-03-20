@@ -1,16 +1,15 @@
 #homePanel.panel
 	div
 		#tips
-			span Tips: Simply 
-			strong drag 
-			span and 
-			strong drop 
-			span a marble from one user to another
+			span 温馨提示: 简单 
+			strong 拖曳 
+			span 即可
+			span 传递一个精灵球给其他人
 
 		#ownerWrap
 			div#toolbarWrap
 				.bottomAlign
-					input(type="text" placeholder="Search Marble Owners" style="margin-left: 0; border-radius:2px;")#searchUsers.longer
+					input(type="text" placeholder="搜索精灵球者" style="margin-left: 0; border-radius:2px;")#searchUsers.longer
 					span.hint(style="margin-left: 10px; font-size: 16px;") 
 						span#foundUsers 0
 						span /
@@ -18,18 +17,18 @@
 
 				button(disabled="disabled")#showStartupPanel
 					span.fa.fa-gears
-					span &nbsp; Start Up Help
+					span &nbsp; 帮助
 					
 				span &nbsp;&nbsp;
 
 				button(disabled="disabled")#showSettingsPanel
 					span.fa.fa-gear
-					span &nbsp; Settings
+					span &nbsp; 设置
 				
 				#trashbin.sortable.innerMarbleWrap
 					div.fa.fa-trash-o.fa-3x(style="vertical-align: middle;")
 					span &nbsp;
-					div#trashText Drag and drop marble to remove
+					div#trashText 拖拽精灵球至此销毁
 			
 
 

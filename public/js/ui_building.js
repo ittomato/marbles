@@ -205,19 +205,19 @@ function build_a_tx(data, pos) {
 	html += `<div class="txDetails">
 				<div class="txCount">TX ` + (Number(pos) + 1) + `</div>
 				<p>
-					<div class="marbleLegend">Transaction: </div>
+					<div class="marbleLegend">交易记录: </div>
 					<div class="marbleName txId">` + data.txId.substring(0, 14) + `...</div>
 				</p>
 				<p>
-					<div class="marbleLegend">Owner: </div>
+					<div class="marbleLegend">拥有者姓名: </div>
 					<div class="marbleName">` + username + `</div>
 				</p>
 				<p>
-					<div class="marbleLegend">Company: </div>
+					<div class="marbleLegend">公司: </div>
 					<div class="marbleName">` + company + `</div>
 				</p>
 				<p>
-					<div class="marbleLegend">Ower Id: </div>
+					<div class="marbleLegend">拥有者ID: </div>
 					<div class="marbleName">` + id + `</div>
 				</p>
 			</div>`;

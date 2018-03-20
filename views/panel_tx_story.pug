@@ -6,7 +6,7 @@
 	.txStepWrap#txStep1.inactiveStep
 		.txStatusWrap
 			.txStatus
-		.txLegend Build Proposal
+		.txLegend 创建虚拟物品
 		.txStoryWrap
 			.marbleWrap
 				div.ball#proposeMarbleStable.hideBorders.leftPos(title="Your marble tx")
@@ -16,14 +16,14 @@
 				div.ball#marbleBorderLeft.leftPos
 				div.ball#marbleBorderRight.leftPos
 		.txDescription
-			span The invocation needs to be signed and packaged as a proposal. 
-			span This is done here, in the Marbles application. 
+			span 该调用需要被签名及打包为一定格式的协议
+			span 这是在区块链精灵应用创建的。 
 
 	//----------------- Step 2 Content
 	.txStepWrap#txStep2.inactiveStep
 		.txStatusWrap
 			.txStatus
-		.txLegend Endorsement
+		.txLegend 点对点网络
 		.txStoryWrap 
 			.marbleWrap
 				div.ball#endorseMarbleStable(title="Your marble tx")
@@ -31,15 +31,15 @@
 				div.ball#endorseMarble
 					span.fa.fa-check
 		.txDescription
-			span Next, we send the transaction proposal to our peer for endorsement. 
-			span The peer will simulate the transaction, verify the proposal, and then sign the proposal. 
-			span It is then sent back to Marbles.
+			span 下一步，我们发生记录信息给我们的点对点区块链网络进行记录。
+			span 该节点将会模拟交易、验证有效性，然后进行签名打包。
+			span 然后再送回精灵创.
 
 	//----------------- Step 3 Content
 	.txStepWrap#txStep3.inactiveStep
 		.txStatusWrap
 			.txStatus
-		.txLegend Ordering
+		.txLegend 订阅
 		.txStoryWrap
 			#orderBoxStable 
 				span.ball.ordererMarbles.hideMe(title="Another marble tx")
@@ -48,7 +48,7 @@
 					span.fa.fa-check
 				span.ball.ordererMarbles.hideMe(title="Another marble tx")
 					span.fa.fa-check
-				#orderBox Block
+				#orderBox 区块
 		.txDescription
 			span Then Marbles will send our endorsed proposal to the orderer. 
 			span The orderer will sequence transactions from throughout the network including ours. 
@@ -57,7 +57,7 @@
 	.txStepWrap#txStep4.inactiveStep
 		.txStatusWrap
 			.txStatus
-		.txLegend Validate & Commit
+		.txLegend 验证 & 提交
 		.txStoryWrap 
 			#commitBoxStable(title="Block")
 				span.fa.fa-search
@@ -74,7 +74,7 @@
 
 	//----------------- All done
 	.stepHelpWrap#doneTxStep
-		h2 Invoke Complete
+		h2 调用完成
 		br
 		br
-		button(type="button").closeTxStory Close
+		button(type="button").closeTxStory 关闭

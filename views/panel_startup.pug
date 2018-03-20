@@ -3,16 +3,16 @@
 	span.fa.fa-close#closeStartUp.closeStartUp
 
 	#stepWelcomeWrap
-		h1 Hi
+		h1 您好！
 		br
 		p 
-			span Starting this application requires a few steps. 
+			span 仅需要几步即可开始应用
 			br
 			br
-			strong Complete each step to fully setup marbles. 
+			strong 完成所有步骤即可获得归属于您个人的精灵
 			br
 			br
-		button#startSteps Start
+		button#startSteps 开始
 
 	//----------------- Step Navigation
 	#stepsWrap
@@ -30,7 +30,7 @@
 		.oneStepWrap.inactive(stepid="step5")
 			.stepDivide
 			.stepIcon 5
-		#stepsTitle There are 5 steps to complete. Click a step to jump to it.
+		#stepsTitle 有5个步骤需要完成，请点击开始
 
 
 	#detailsWrap
@@ -39,92 +39,91 @@
 		#step1.stepWrap.success
 			.stepHeader 
 				span.fa.fa-gear
-				span &nbsp;&nbsp;Check Configuration Files
+				span &nbsp;&nbsp;检测配置文件
 			.stepDescription 
-				span The first step was to check your config JSON files for easy to make mistakes. 
-				span The file that was checked can be found in 
+				span 检测您特别容易出错的JSON配置文件，
+				span 该配置文件可在以下路径获得:
 				span.backgroundMe /config/#{bag.creds_filename}
 				span &nbsp;.
 
 			.failureStep 
 				p 
-					span Uh oh, there is something wrong with the config files. 
-					span The server's console has more information.
+					span oh on ，配置文件有错误，请检测!
+					span 服务后台有更详细的信息。
 				br
 				p(style="font-weight: 200;") 
-					span Checkout the documentation we have on the 
-					a(href="https://github.com/IBM-Blockchain/marbles/blob/v4.0/docs/config_file.md" target="_blank" style="color:#fff;") config files.
+					span 您可以下载我们提供的参考的配置文件
+					a(href="https://github.com/IBM-Blockchain/marbles/blob/v4.0/docs/config_file.md" target="_blank" style="color:#fff;").
 			br
-			.successStep Step 1 Complete
+			.successStep 完成第一步操作！
 			br
 			br
-			button.nextStep(nextstepid="step2") Next Step
+			button.nextStep(nextstepid="step2") 下一步
 
 		//----------------- Step 2 Content [Enroll Admin]
 		#step2.stepWrap.hidden
 			.stepHeader 
 				span.fa.fa-user
-				span &nbsp;&nbsp;Enrolling Admin
+				span &nbsp;&nbsp;管理员登录
 			.stepDescription 
-				span Next up, we attempted to enroll you as your company's admin. 
-				span This step contacted your Certificate Authority (CA) and fed it the 
-				span.backgroundMe enrollID
-				span &nbsp;and 
-				span.backgroundMe enrollSecret
-				span &nbsp;from your creds file. 
+				span 下一步，你作为管理员登录系统.
+				span 这一步我们将从你的CA证书文件获取
+				span.backgroundMe 登录ID
+				span &nbsp;和 
+				span.backgroundMe 密码
+				span &nbsp;
 				br
 
 			include ./template/loading.pug
 
 			.failureStep 
-				p Sorry, we could not enroll the admin against the CA. 
-				p Edit the settings below to try again.
+				p 抱歉，获取CA的用户信息失败.
+				p 请修改配置文件再尝试.
 
 			.startupWrap
 				.settingsExpand 
 					span.fa.fa-plus-square
-					span &nbsp;&nbsp;JSON Settings
+					span &nbsp;&nbsp;JSON配置
 
 				.settingsContent
 					.stepInputLegend
-						span CA's 
-						span.backgroundMe api_url
-					input(type="text" placeholder="CA ex: 192.168.99.100:8888" name="caUrl" value=bag.creds.ca).longer
+						span.backgroundMe 登录URL
+					input(type="text" placeholder="CA ex: 127.0.0.1:8888" name="caUrl" value=bag.creds.ca).longer
 					span.fa.fa-question-circle.settingstooltip
-						span.tooltiptext This is main HTTP url to reach your certificate authority. It should include the protocol and port.
+						span.tooltiptext 这个是访问证书授权的主要HTTP 的URL地址.
 					br
 					.stepInputLegend
-						span.backgroundMe enrollId
+						span.backgroundMe 登录ID
 					input(type="text" placeholder="Enroll Id" name="enrollId" value=bag.creds.admin_id).longer
 					span.fa.fa-question-circle.settingstooltip
-						span.tooltiptext This is a valid enroll id for your CA. It should already be registered on the CA.
+						span.tooltiptext 这个合法登录ID需存在注册的CA机构中.
 					br
 					.stepInputLegend
-						span.backgroundMe enrollSecret 
+						span.backgroundMe 登录密码 
 					input(type="text" placeholder="Enroll Secret" name="enrollSecret" value=bag.creds.admin_secret).longer
 					span.fa.fa-question-circle.settingstooltip
-						span.tooltiptext The enroll secret is paired with an enroll ID registered on the CA.
+						span.tooltiptext 登录ID、密码需要在CA机构中匹配存在.
 
-			.successStep Step 2 Complete
-			button.nextStep(nextstepid="step3") Next Step
-			button.runStep(stepid="step2" nextstepid="step3")#enrollAdmin Try Again
+			.successStep 完成第二步操作！
+			button.nextStep(nextstepid="step3") 下一步
+			button.runStep(stepid="step2" nextstepid="step3")#enrollAdmin 再试试.
 
-			.showMoreDetails Why is this important?
+			.showMoreDetails 为什么是重要的一步?
 			.moreDetails
-				span If successful, the application will download an enrollment certificate. 
-				span The certificate will be used to authenticate future marbles transactions. 
-				span Without it we cannot create transactions. 
+				span 如果成功，应用将会下载一个登录证书，
+				span 证书将会用到以后精灵的授权交易中
+				span 没有证书，我们创建不了任何交易。
 
 		//----------------- Step 3 Content [Find Chaincode]
 		#step3.stepWrap.hidden
 			.stepHeader 
 				span.fa.fa-file-text
-				span &nbsp;&nbsp;Finding Chaincode
+				span &nbsp;&nbsp;查找智能合约
 			.stepDescription 
-				span Now we needed to locate the chaincode on your channel. 
-				span Your creds file says to check the channel 
+				span 现在需要确定通道上的智能合约
+				span 你的信任证书文件需要检查通道
 				span.backgroundMe #{bag.creds.channel}
-				span &nbsp; for the chaincode named 
+				span &nbsp; 里智能合约名为
 				span.backgroundMe #{bag.creds.chaincode_id}
 				span &nbsp;.
 				br
@@ -132,18 +131,18 @@
 			include ./template/loading.pug
 			
 			.failureStep 
-				p We could not find the chaincode
-				p Edit the settings below to try again
-				p(style="font-weight: 200;") OR...
+				p 查找智能合约失败
+				p 修改下面的配置文件并重试
+				p(style="font-weight: 200;") 或...
 				p(style="font-weight: 200;") 
-					span If this is your first time using the application then&nbsp;
-					a(href="https://github.com/IBM-Blockchain/marbles/tree/v4.0#3-install-and-instantiate-chaincode" target="_blank" style="color:#fff;") install/instantiate
-					span &nbsp;marbles chaincode
+					span 如果你第一次使用本应用,可&nbsp;
+					a(href="https://github.com/IBM-Blockchain/marbles/tree/v4.0#3-install-and-instantiate-chaincode" target="_blank" style="color:#fff;") 安装/初始化
+					span &nbsp;精灵球智能合约.
 
 			.startupWrap
 				.settingsExpand 
 					span.fa.fa-plus-square
-					span &nbsp;&nbsp;JSON Settings
+					span &nbsp;&nbsp;JSON配置
 
 				.settingsContent
 					.stepInputLegend
@@ -167,73 +166,72 @@
 						span.tooltiptext This is the name of a channel you created on the blockchain network.
 					br
 					.stepInputLegend
-						span.backgroundMe chaincode_id 
+						span.backgroundMe 智能合约ID
 					input(type="text" placeholder="Chaincode ID" name="chaincodeId" value=bag.creds.chaincode_id).longer
 					span.fa.fa-question-circle.settingstooltip
 						span.tooltiptext This is the name of your instantiated chaincode. ex: marbles.
 					br
 					.stepInputLegend
-						span.backgroundMe chaincode_version 
+						span.backgroundMe 智能合约版本
 					input(type="text" placeholder="Chaincode ID" name="chaincodeVersion" value=bag.creds.chaincode_version).longer
 					span.fa.fa-question-circle.settingstooltip
 						span.tooltiptext This is the version of your instantiated chaincode. ex: v4.
 
-			.successStep Step 3 Complete
+			.successStep Step 3 Complete 完成第三步骤操作！
 			br
-			button.nextStep(nextstepid="step4") Next Step
-			button.runStep(stepid="step3" nextstepid="step4")#findCcButton Try Again
+			button.nextStep(nextstepid="step4") 下一步
+			button.runStep(stepid="step3" nextstepid="step4")#findCcButton 再试试
 
-			.showMoreDetails Why is this important?
+			.showMoreDetails 为什么会很重要?
 			.moreDetails
-				span Each channel on the network has its own ledger to store transactions. 
-				span When our chaincode is running on a channel we will be able to create and store these transactions. 
-				span There might be other types of activity on the channel, but we won't be concern with them. 
+				span 网络上的每一个通道，都有它对应的账本保存数据。
+				span 当我们的智能合约在通道上运行时，将会创建和保存这些信息记录值。
+				span 也许会有其他类型的虚拟产品记录，但我们不必关心。
 				br
 				br
-				span The chaincode itself is code written in GoLang. 
-				span It defines the assets (marbles) and the rules around marble transfers. 
-				span Our chaincode transactions will create and modify marbles, marble owners, and marble companies. 
-				span We cannot use this application until the chaincode is instantiated on a channel. 
+				span 智能合约本身是通过Go语言编写，
+				span 它定义了虚拟物品（如精灵球）及围绕它的传输规则。
+				span 我们的智能合约可以创建、修改精灵球及其拥有者、归属组织。
+				span 当我们初始化精灵球智能合约时，即可进行本应用的使用，玩的开心。
 				
 		//----------------- Step 4 Content [Register Marble Owners]
 		#step4.stepWrap.hidden
 			.stepHeader 
 				span.fa.fa-group
-				span &nbsp;&nbsp;Create Assets
+				span &nbsp;&nbsp;创建精灵球
 			.stepDescription 
-				span Almost there! 
-				span As a marbles trading company you may bring new marble owners onboard. 
-				span These marble owners represent your user base. 
+				span 你将会为精灵组织创建少数的精灵球,
+				span 这些精灵球代表你的虚拟数字物品。
 				br
 				br
-				span This step will create the marble owners and 3 marbles per owner. 
+				span 这一步将会演示你创建3个精灵拥有者。 
 
 			include ./template/loading.pug
 
 			.startupWrap
 				#registerOwnersInputPanel.settingsContent
 					.stepInputLegend
-						span Company 
+						span 组织名称
 					input(type="text" value=bag.marble_company disabled="disabled").longer
 					span.fa.fa-question-circle.settingstooltip
-						span.tooltiptext Edit the config file and restart the application to change your company name.
+						span.tooltiptext 编辑配置文件并重启，即可完成修改公司名称.
 					br
 					.stepInputLegend
-						span Marble Owners 
+						span 精灵球拥有者
 					input(type="text" placeholder="bob, bill, amy" name="marbleOwners" value=bag.creds.marble_owners).longer
 					span.fa.fa-question-circle.settingstooltip
-						span.tooltiptext Enter the names of the marble owners you want created. Separate them by commas.
+						span.tooltiptext 输入精灵球拥有者名字，以逗号分隔符区分。
 					
-			.successStep Step 4 Complete
-			button.nextStep(nextstepid="step5" style="display: inline-block") Skip Step
-			button.runStep(stepid="step4" nextstepid="step5")#registerOwners Create
+			.successStep 完成第四步操作
+			button.nextStep(nextstepid="step5" style="display: inline-block") 跳过
+			button.runStep(stepid="step4" nextstepid="step5")#registerOwners 创建
 
 		//----------------- Step 5 Content [Finished]
 		#step5.stepWrap.hidden.success
 			span.fa.fa-smile-o.fa-3x
 			.stepDescription(style="text-align:center")
-				span Your marbles application is ready to use!
+				span 你的精灵球应用已经可以使用,祝好!
 				br
 				br
 			
-			button(type="button").closeStartUp Enter
+			button(type="button").closeStartUp 进入

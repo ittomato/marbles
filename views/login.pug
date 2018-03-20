@@ -22,55 +22,56 @@ block content
 		
 		// --------------- Welcome Panel
 		#welcomePanel
-			h2(style="font-weight: 600;") WELCOME TO THE MARBLES DEMO APP
+			h2(style="font-weight: 600;") 欢迎来到区块链精灵球应用APP
 
 			#adminText
-				span Hello again 
+				span 你好！
 				span#loginCompany #{bag.marble_company} 
-				span admin !
+				span 管理员 !
 
-			p 
-				span This application allows you to simulate a simple asset transaction over a Hyperledger Fabric blockchain.  
-				span You can connect multiple peers to trade with a larger marble user base. 
-				span In this application, you can: 
+			p
+				span 区块链精灵球基于区块链网络创建数字宝贝的精灵球应用，
+				span 在该网络中，大千世界的世间万物，都会以数字形态出现在此网络中且存在于网络上，
+				span 不会因服务器崩溃而消失，这是个永久存在的世界!
+				span happy fun!
 			
 			#split1x3Wrap
 				.split1x3
 					.welcomeTitle
-						span Trade
+						span 记录
 						//br
 							span Assets
 					br
-					.blub1x3 Transfer assets (marbles) across the marbles user base
+					.blub1x3 传送虚拟数字宝贝给其他用户
 					img(src="/imgs/welcome_img1.png").welcomeImg
 				.split1x3
 					.welcomeTitle
-						span Create
+						span 创建
 						//br
 							span Marbles
 					br
-					.blub1x3 Create new assets (marbles)
+					.blub1x3 收集虚拟数字宝贝
 					img(src="/imgs/welcome_img2.png").welcomeImg
 				.split1x3
 					.welcomeTitle
-						span Verify
+						span 验证
 						//br
 							span Ownership
 					br
-					.blub1x3 Verify marble transactions
+					.blub1x3 验证虚拟数字宝贝
 					img(src="/imgs/welcome_img3.png").welcomeImg
 			br
 			br
 
 			p 
-				span For more information, please visit our 
-				a(href="https://github.com/IBM-Blockchain/marbles/tree/v4.0") GitHub
+				span 更多信息，请访问
+				a(href="https://ittomato.github.io") Zeuslook
 				span.
 
 
 		// --------------- Login Panel
 		form#loginPanel(method="POST" action="#")
-			p Enter
+			p 开启虚拟世界探险
 			hr
 			input(type="text" placeholder="username" value="admin" name="username")
-			button(type="submit") Login
+			button(type="submit") 进入
