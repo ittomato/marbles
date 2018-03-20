@@ -9,14 +9,14 @@
 		.txLegend 创建虚拟物品
 		.txStoryWrap
 			.marbleWrap
-				div.ball#proposeMarbleStable.hideBorders.leftPos(title="Your marble tx")
+				div.ball#proposeMarbleStable.hideBorders.leftPos(title="你的精灵球")
 				div.ball#proposeMarble.hideBorders.leftPos
 				div.ball#marbleBorderTop.leftPos
 				div.ball#marbleBorderBottom.leftPos
 				div.ball#marbleBorderLeft.leftPos
 				div.ball#marbleBorderRight.leftPos
 		.txDescription
-			span 该调用需要被签名及打包为一定格式的协议
+			span 该调用需要被签名及打包为被编码为特定格式的协议，
 			span 这是在区块链精灵应用创建的。 
 
 	//----------------- Step 2 Content
@@ -26,32 +26,30 @@
 		.txLegend 点对点网络
 		.txStoryWrap 
 			.marbleWrap
-				div.ball#endorseMarbleStable(title="Your marble tx")
+				div.ball#endorseMarbleStable(title="你的精灵球")
 					span.fa.fa-check
 				div.ball#endorseMarble
 					span.fa.fa-check
 		.txDescription
-			span 下一步，我们发生记录信息给我们的点对点区块链网络进行记录。
-			span 该节点将会模拟交易、验证有效性，然后进行签名打包。
-			span 然后再送回精灵创.
+			span 我们收集的虚拟物品发送给我们的点对点区块链网络进行记录，
+			span 该节点将会模拟交易、验证有效性，然后进行签名打包，再送会采集器。
 
 	//----------------- Step 3 Content
 	.txStepWrap#txStep3.inactiveStep
 		.txStatusWrap
 			.txStatus
-		.txLegend 订阅
+		.txLegend 采集器
 		.txStoryWrap
 			#orderBoxStable 
-				span.ball.ordererMarbles.hideMe(title="Another marble tx")
+				span.ball.ordererMarbles.hideMe(title="其他人精灵球")
 					span.fa.fa-check
-				span.ball.ordererMarbles.hideMe(title="Your marble tx")
+				span.ball.ordererMarbles.hideMe(title="你的精灵球")
 					span.fa.fa-check
-				span.ball.ordererMarbles.hideMe(title="Another marble tx")
+				span.ball.ordererMarbles.hideMe(title="其他人虚拟物品")
 					span.fa.fa-check
 				#orderBox 区块
 		.txDescription
-			span Then Marbles will send our endorsed proposal to the orderer. 
-			span The orderer will sequence transactions from throughout the network including ours. 
+			span 采集器归集了所有收集到的包括精灵球在内的虚拟物品，进行排序成区块。
 
 	//----------------- Step 4 Content
 	.txStepWrap#txStep4.inactiveStep
@@ -62,12 +60,11 @@
 			#commitBoxStable(title="Block")
 				span.fa.fa-search
 		.txDescription
-			span The block containing our transaction is sent from the orderer to our peer. 
-			span Finally it is validated by the peer and then committed to the peer's ledger. 
+			span 这个区块包含采集器涵盖的所有的虚拟物品，
+			span 通过被分散节点进行验证通过后，再提交到节点进行永久记录。
 
 	div
-		.hint * Note the speed of this process is slowed down for demonstration purposes
-
+		.hint * 为了演示目的，这个过程将被减慢执行。
 	#txStoryErrorWrap 
 		span.fa.fa-warning(style="fill: #000;")
 		span#txStoryErrorTxt &nbsp;
